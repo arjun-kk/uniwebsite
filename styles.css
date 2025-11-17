@@ -1,0 +1,626 @@
+/* ===========================
+   Prologue-Inspired Academic Website
+   Modern CSS with Sidebar Layout
+   =========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #4a90e2;
+    --primary-dark: #357abd;
+    --secondary-color: #50c878;
+    --accent-color: #ff6b6b;
+    --dark-bg: #2c3e50;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --text-color: #333;
+    --text-light: #666;
+    --border-color: #e0e0e0;
+    --sidebar-width: 350px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+}
+
+/* ===========================
+   Sidebar Styles (Prologue)
+   =========================== */
+
+#sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: var(--sidebar-width);
+    height: 100%;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #34495e 100%);
+    color: var(--white);
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+#sidebar .inner {
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.profile-image {
+    margin-bottom: 25px;
+}
+
+.profile-image img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.profile-image img:hover {
+    transform: scale(1.05);
+    border-color: var(--primary-color);
+}
+
+#sidebar h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--white);
+}
+
+#sidebar .title {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#sidebar .department,
+#sidebar .university {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 3px;
+}
+
+/* Navigation */
+#nav {
+    margin: 35px 0;
+}
+
+#nav ul {
+    list-style: none;
+}
+
+#nav ul li {
+    margin: 0;
+}
+
+#nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.05rem;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+#nav ul li a:hover,
+#nav ul li a.active {
+    color: var(--white);
+    background: rgba(255,255,255,0.1);
+    border-left-color: var(--primary-color);
+    padding-left: 25px;
+}
+
+/* Social Links in Sidebar */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.copyright {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+}
+
+/* ===========================
+   Main Content Area
+   =========================== */
+
+#main {
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+}
+
+.main-section {
+    padding: 60px 50px;
+    min-height: 100vh;
+}
+
+.main-section:nth-child(even) {
+    background-color: var(--white);
+}
+
+.main-section:nth-child(odd) {
+    background-color: var(--light-bg);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Section Headers */
+.section-header {
+    margin-bottom: 40px;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 20px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--dark-bg);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* Content Styles */
+.content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.content p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.content h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin: 35px 0 20px;
+    font-weight: 600;
+}
+
+.content h4 {
+    font-size: 1.3rem;
+    color: var(--dark-bg);
+    margin: 20px 0 10px;
+    font-weight: 600;
+}
+
+/* Interests List */
+.interests-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.interests-list li {
+    background: var(--white);
+    padding: 15px 20px;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+}
+
+.interests-list li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* Education Items */
+.education-item {
+    margin: 25px 0;
+    padding: 20px;
+    background: var(--white);
+    border-left: 4px solid var(--secondary-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.education-item h4 {
+    margin: 0 0 10px 0;
+    color: var(--dark-bg);
+}
+
+.education-item .institution {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.education-item .detail {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* Research Projects */
+.project-box {
+    background: var(--white);
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 8px;
+    border-top: 4px solid var(--primary-color);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.project-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.project-box h4 {
+    color: var(--dark-bg);
+    margin: 0 0 10px 0;
+}
+
+.project-box .funding {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+/* Publications */
+.publication {
+    display: flex;
+    gap: 20px;
+    margin: 25px 0;
+    padding: 20px;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.publication:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
+.pub-year {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.pub-content {
+    flex: 1;
+}
+
+.pub-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-bg);
+    margin-bottom: 8px;
+}
+
+.pub-authors {
+    color: var(--text-light);
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.pub-venue {
+    color: var(--text-color);
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.pub-links {
+    display: flex;
+    gap: 12px;
+}
+
+.pub-link {
+    padding: 6px 15px;
+    background: var(--light-bg);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.pub-link:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+/* Teaching - Courses */
+.course {
+    background: var(--white);
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 8px;
+    border-left: 5px solid var(--secondary-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.course h4 {
+    color: var(--dark-bg);
+    margin: 0 0 10px 0;
+}
+
+.course-detail {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+/* Student Lists */
+.student-group {
+    margin: 25px 0;
+}
+
+.student-group h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.student-list {
+    list-style: none;
+    background: var(--white);
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.student-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+    line-height: 1.6;
+}
+
+.student-list li:last-child {
+    border-bottom: none;
+}
+
+/* Contact Section */
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.contact-item {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 8px;
+    border-top: 4px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.contact-item h3 {
+    font-size: 1.3rem;
+    color: var(--dark-bg);
+    margin: 0 0 15px 0;
+}
+
+.contact-item p {
+    margin: 0;
+    text-align: left;
+}
+
+.contact-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-item a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.prospective-students {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.prospective-students h3 {
+    color: var(--white);
+    margin: 0 0 15px 0;
+}
+
+.prospective-students p {
+    margin: 0;
+    text-align: left;
+}
+
+/* Mobile Menu Toggle */
+.toggle {
+    display: none;
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+
+@media (max-width: 1280px) {
+    :root {
+        --sidebar-width: 300px;
+    }
+    
+    #sidebar .inner {
+        padding: 30px 20px;
+    }
+    
+    .profile-image img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    #sidebar h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 980px) {
+    #sidebar {
+        left: -350px;
+        transition: left 0.5s ease;
+    }
+    
+    #sidebar.active {
+        left: 0;
+    }
+    
+    #main {
+        margin-left: 0;
+    }
+    
+    .toggle {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background: var(--primary-color);
+        color: var(--white);
+        text-align: center;
+        line-height: 60px;
+        border-radius: 50%;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.9rem;
+        z-index: 999;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .toggle:hover {
+        background: var(--primary-dark);
+        transform: scale(1.1);
+    }
+    
+    .main-section {
+        padding: 50px 30px;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 736px) {
+    .main-section {
+        padding: 40px 20px;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .interests-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .publication {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .pub-year {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .pub-links {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .toggle {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 0.8rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .content {
+        font-size: 1rem;
+    }
+}
