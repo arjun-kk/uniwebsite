@@ -1,13 +1,13 @@
-# Personal Portfolio Website
+# Academic Personal Website
 
-A clean, modern, and responsive personal portfolio website built from scratch using HTML5 and CSS3.
+A modern, professional academic website built with HTML5 and CSS3, inspired by the Prologue template design with a fixed sidebar navigation.
 
 ## 🌟 Features
 
+- **Prologue-Style Sidebar**: Fixed sidebar navigation with profile photo and social links
 - **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
-- **Modern UI**: Clean, minimalist design with smooth animations
-- **Sticky Navigation**: Navigation bar stays at the top when scrolling
-- **Smooth Scrolling**: Seamless navigation between sections
+- **Academic Sections**: About, Research, Publications, Teaching, and Contact
+- **Modern UI**: Clean, professional design with smooth animations and hover effects
 - **Accessible**: Built with semantic HTML5 for better accessibility
 - **Fast Loading**: No external dependencies, pure HTML/CSS
 
@@ -16,29 +16,36 @@ A clean, modern, and responsive personal portfolio website built from scratch us
 ```
 uniwebsite/
 ├── index.html      # Main HTML file with website structure
-├── styles.css      # CSS stylesheet with all styling
+├── styles.css      # CSS stylesheet with Prologue-inspired sidebar layout
 └── README.md       # This file
 ```
 
 ## 🎨 Design Features
 
+### Layout
+- **Fixed Sidebar** (350px width on desktop): Contains profile, navigation, and social links
+- **Main Content Area**: Scrollable sections with alternating backgrounds
+- **Mobile-Friendly**: Sidebar collapses with toggle button on smaller screens
+
 ### Color Scheme
-- Primary Color: Dark blue-gray (#2c3e50)
-- Secondary Color: Bright blue (#3498db)
-- Clean white background with subtle gray alternating sections
+- Primary Color: Bright blue (#4a90e2)
+- Secondary Color: Green (#50c878)
+- Accent Color: Red (#ff6b6b)
+- Dark Background: Dark blue-gray (#2c3e50)
+- Clean white and light gray backgrounds for content
 
 ### Sections
-1. **Header**: Eye-catching gradient header with name and tagline
-2. **Navigation**: Sticky navigation menu for easy section access
-3. **About**: Personal introduction and expertise
-4. **Projects**: Showcase of work with card-based layout
-5. **Contact**: Social links and contact information
-6. **Footer**: Copyright information
+1. **Sidebar**: Profile photo, name, title, department, navigation, social links
+2. **About**: Personal introduction, research interests, and education
+3. **Research**: Current research projects with funding information
+4. **Publications**: Journal articles and conference papers organized by year
+5. **Teaching**: Current courses and student supervision (Ph.D. and M.S.)
+6. **Contact**: Email, office location, phone, office hours, and prospective student info
 
 ### Responsive Breakpoints
-- Desktop: > 768px
-- Tablet: 768px - 481px
-- Mobile: < 480px
+- Desktop: > 980px (full sidebar visible)
+- Tablet: 980px - 736px (sidebar toggleable)
+- Mobile: < 736px (optimized mobile layout)
 
 ## 🚀 How to Use
 
@@ -52,34 +59,42 @@ uniwebsite/
    ```
    Then open `http://localhost:8000` in your browser
 
-2. **Customize**:
-   - Edit `index.html` to change content (name, bio, projects)
-   - Modify `styles.css` to adjust colors and styling
-   - Update CSS variables in `:root` for quick color theme changes
+2. **Customize Content**:
+   - **Profile**: Edit lines 18-22 in `index.html` (name, title, department)
+   - **About Section**: Lines 48-97 (bio, interests, education)
+   - **Research Projects**: Lines 105-138 (project details and funding)
+   - **Publications**: Lines 147-213 (papers, conferences, links)
+   - **Teaching**: Lines 221-273 (courses, students)
+   - **Contact Info**: Lines 281-316 (email, office, phone, hours)
+
+3. **Customize Styling**:
+   - Edit `styles.css` to adjust colors and styling
+   - Modify CSS variables in `:root` for quick theme changes
+   - Adjust sidebar width with `--sidebar-width` variable
 
 ## 💡 Code Explanation
 
 ### HTML Structure
 The HTML uses semantic elements for better SEO and accessibility:
-- `<header>`: Contains the main title and tagline
-- `<nav>`: Navigation menu with internal links
-- `<main>`: Main content area with sections
-- `<section>`: Individual content sections (About, Projects, Contact)
-- `<footer>`: Copyright and footer information
+- `<div id="sidebar">`: Fixed sidebar with profile and navigation
+- `<div id="main">`: Main content area with scrollable sections
+- `<section class="main-section">`: Individual content sections
+- `<header class="section-header">`: Section titles and descriptions
 
 ### CSS Features
-- **CSS Variables**: Easy theme customization
-- **Flexbox & Grid**: Modern layout techniques
-- **Media Queries**: Responsive design
-- **Transitions**: Smooth hover effects
-- **Box Shadow**: Depth and visual hierarchy
+- **CSS Variables**: Easy theme customization via `:root` properties
+- **Fixed Sidebar**: `position: fixed` for persistent navigation
+- **Flexbox & Grid**: Modern layout for responsive design
+- **Smooth Scrolling**: CSS `scroll-behavior: smooth` for anchor navigation
+- **Transitions**: Smooth hover effects on links and cards
+- **Media Queries**: Responsive breakpoints for all devices
 
 ### Key CSS Techniques Used:
-1. **Sticky Navigation**: `position: sticky; top: 0;`
-2. **Smooth Scrolling**: `scroll-behavior: smooth;`
-3. **CSS Grid**: `display: grid;` for project cards
-4. **Gradient Background**: `linear-gradient()` for header
-5. **Hover Effects**: `transition` properties for smooth animations
+1. **Fixed Sidebar**: `position: fixed; left: 0; width: 350px;`
+2. **Main Content Margin**: `margin-left: var(--sidebar-width);`
+3. **Smooth Transitions**: `transition: all 0.3s ease;` for hover effects
+4. **Gradient Backgrounds**: `linear-gradient()` for sidebar and special sections
+5. **Responsive Toggle**: Hidden menu button on mobile with sidebar slide-in
 
 ## 🎯 Customization Guide
 
@@ -87,20 +102,24 @@ The HTML uses semantic elements for better SEO and accessibility:
 Edit the CSS variables in `styles.css`:
 ```css
 :root {
-    --primary-color: #2c3e50;     /* Main dark color */
-    --secondary-color: #3498db;   /* Accent color */
-    --text-color: #333;           /* Text color */
+    --primary-color: #4a90e2;     /* Accent blue */
+    --secondary-color: #50c878;   /* Green for highlights */
+    --dark-bg: #2c3e50;           /* Sidebar background */
     --light-bg: #f8f9fa;          /* Light background */
 }
 ```
 
-### Update Content
-Edit `index.html`:
-- Line 13: Change the name
-- Line 14: Update the tagline
-- Lines 28-47: Modify the About section
-- Lines 52-72: Update projects
-- Lines 80-85: Change contact links
+### Replace Profile Image
+Replace the placeholder URL in `index.html` line 19:
+```html
+<img src="YOUR_IMAGE_URL" alt="Profile Photo">
+```
+Recommended size: 200x200px (will be displayed as circular)
+
+### Add/Remove Sections
+- Copy an existing `<section>` block in `index.html`
+- Add corresponding navigation link in the sidebar `<nav>` menu
+- Style inherits from existing `.main-section` CSS class
 
 ## 📱 Browser Support
 
@@ -109,10 +128,19 @@ Edit `index.html`:
 - Safari (latest)
 - Mobile browsers (iOS Safari, Chrome Mobile)
 
+## 📖 Academic Use
+
+This template is perfect for:
+- Faculty personal websites
+- Graduate student academic pages
+- Researcher portfolio sites
+- Academic lab group pages
+
 ## 📄 License
 
-Feel free to use this template for your own portfolio website!
+Feel free to use this template for your own academic website!
 
 ---
 
-Built with ❤️ using pure HTML5 and CSS3
+**Design Inspiration**: Prologue HTML5 Template  
+**Built with**: Pure HTML5 and CSS3 (no frameworks or dependencies)
